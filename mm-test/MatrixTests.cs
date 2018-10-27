@@ -131,16 +131,17 @@ namespace mm_test
             // Act
             action(result, a, b);
 
-            var actual = VBMM.MatrixMulti_Original(a, b);
+            var expected = VBMM.MatrixMulti_Original(a, b);
 
             // Assert
             for (var i = 0; i <= result.GetUpperBound(0); i++)
             {
                 for (var j = 0; j <= result.GetUpperBound(1); j++)
                 {
-                    Assert.AreEqual(result[i, j], actual[i, j], 0.00001);
+                    Assert.AreEqual(expected[i, j], result[i, j], 0.00001);
                 }
             }
+            //CollectionAssert.AreEqual(expected, result);
         }
 
         public void AssertMatrixJagged(Action<double[][], double[][], double[][]> action)

@@ -54,7 +54,7 @@
   <ItemGroup>
     <Compile Include="MatrixTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="opencltests.cs" />
+    <Compile Include="OpenCLTests.cs" />
     <Compile Include="SimdTests.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -7,7 +7,7 @@ using Cloo;
 namespace mm_test
 {
     [TestClass]
-    public class opencltests
+    public class OpenCLTests
     {
         static readonly string MatrixMultiSource = @"
 kernel void MatrixMulti(global read_only double* src1, global read_only double* src2, int ncols, global write_only double* dst)
