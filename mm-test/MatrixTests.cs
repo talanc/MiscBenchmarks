@@ -124,8 +124,6 @@ namespace mm_test
         [TestMethod]
         public void TestCppManaged()
         {
-            Assert.AreEqual(1, MmLibCpp.CppMm.Something());
-
             AssertMatrix((result, a, b) =>
             {
                 MmLibCpp.CppMm.Managed_Mat12_Mat12(result, a, b);
@@ -135,8 +133,6 @@ namespace mm_test
         [TestMethod]
         public void TestCppNative()
         {
-            Assert.AreEqual(1, MmLibCpp.CppMm.Something());
-
             AssertMatrix((result, a, b) =>
             {
                 MmLibCpp.CppMm.NativeWrapper_Mat12_Mat12(result, a, b);
