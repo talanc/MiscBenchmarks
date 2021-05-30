@@ -11,8 +11,7 @@ using mm_lib_vb;
 
 namespace mmbench1
 {
-    //[RyuJitX64Job()]
-    //[LegacyJitX86Job(), RyuJitX64Job()]
+    [ShortRunJob]
     public class MMBenchmarks
     {
         private double[,] result = Helper.GenerateZeroMatrix();
@@ -130,12 +129,26 @@ namespace mmbench1
             return amat * bmat;
         }
 
-        //[Benchmark]
-        //public double[,] OpenCL()
-        //{
-        //    CSMM.MatrixMulti_OpenCL(result, a, b);
-        //    return result;
-        //}
+        [Benchmark]
+        public double[,] OpenCL()
+        {
+            CSMM.MatrixMulti_OpenCL(result, a, b);
+            return result;
+        }
+
+        [Benchmark]
+        public double[,] Managed()
+        {
+            MmLibCpp.CppMm.Managed_Mat12_Mat12(result, a, b);
+            return result;
+        }
+
+        [Benchmark]
+        public double[,] Native()
+        {
+            MmLibCpp.CppMm.NativeWrapper_Mat12_Mat12(result, a, b);
+            return result;
+        }
     }
 
     class Program

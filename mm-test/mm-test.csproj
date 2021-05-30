@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net461</TargetFramework>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,5 +12,6 @@
   <ItemGroup>
     <ProjectReference Include="..\mm-lib-cs\mm-lib-cs.csproj" />
     <ProjectReference Include="..\mm-lib-vb\mm-lib-vb.vbproj" />
+    <ProjectReference Include="..\MmLibCpp\MmLibCpp.vcxproj" />
   </ItemGroup>
 </Project>

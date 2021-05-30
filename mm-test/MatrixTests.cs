@@ -121,6 +121,28 @@ namespace mm_test
             });
         }
 
+        [TestMethod]
+        public void TestCppManaged()
+        {
+            Assert.AreEqual(1, MmLibCpp.CppMm.Something());
+
+            AssertMatrix((result, a, b) =>
+            {
+                MmLibCpp.CppMm.Managed_Mat12_Mat12(result, a, b);
+            });
+        }
+
+        [TestMethod]
+        public void TestCppNative()
+        {
+            Assert.AreEqual(1, MmLibCpp.CppMm.Something());
+
+            AssertMatrix((result, a, b) =>
+            {
+                MmLibCpp.CppMm.NativeWrapper_Mat12_Mat12(result, a, b);
+            });
+        }
+
         public void AssertMatrix(Action<double[,], double[,], double[,]> action)
         {
             // Arrange
@@ -138,7 +160,7 @@ namespace mm_test
             {
                 for (var j = 0; j <= result.GetUpperBound(1); j++)
                 {
-                    Assert.AreEqual(expected[i, j], result[i, j], 0.00001);
+                    Assert.AreEqual(expected[i, j], result[i, j], 0.00001, $"I={i}, J={j}, Expected={expected[i,j]}, Actual={result[i, j]}");
                 }
             }
             //CollectionAssert.AreEqual(expected, result);

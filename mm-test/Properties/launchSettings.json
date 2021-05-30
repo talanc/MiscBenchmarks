@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "mm-test": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}
