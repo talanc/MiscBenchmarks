@@ -9,13 +9,13 @@ void Native_Mat12_Mat12(double* result, const double* a, const double* b)
 
 	for (auto i = X1; i < N; i++)
 	{
+		auto in = i * N;
 		for (auto j = X1; j < N; j++)
 		{
+			auto r = result + in + j;
 			for (auto k = X1; k < N; k++)
 			{
-				auto va = *(a + i * N + k);
-				auto vb = *(b + k * N + j);
-				*(result + i * N + j) += *(a + i * N + k) * *(b + k * N + j);
+				*r += *(a + i * N + k) * *(b + k * N + j);
 			}
 		}
 	}
